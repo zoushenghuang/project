@@ -44,6 +44,20 @@ export interface Subscription {
   subscribedAt: string
 }
 
+export interface Author {
+  id: number
+  name: string
+  title?: string
+  bio?: string
+  avatar?: string
+  socialLinks?: {
+    twitter?: string
+    instagram?: string
+    linkedin?: string
+    github?: string
+  }
+}
+
 export interface ArticlesResponse {
   data: Article[]
   total: number

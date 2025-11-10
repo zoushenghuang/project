@@ -11,8 +11,8 @@ import SubscriptionForm from '@/components/sidebar/SubscriptionForm'
 
 // 博客主人信息（固定信息）
 const blogOwner = {
-  name: '博主',
-  title: '全栈开发者',
+  name: '邹圣煌',
+  title: '前端开发师',
   bio: '热爱编程，分享技术心得与生活感悟',
   avatar: 'https://s.coze.cn/image/-ccG_QWFeVg/',
   email: 'hello@example.com',
@@ -137,7 +137,7 @@ export default function AboutPage() {
 
             {/* 联系方式 */}
             <Card className="fade-in">
-              <h2 className="text-2xl font-bold text-slate-800 mb-4">联系我们</h2>
+              <h2 className="text-2xl font-bold text-slate-800 mb-4">联系我</h2>
               <div className="space-y-3">
                 <div className="flex items-center text-slate-600">
                   <i className="fas fa-envelope mr-3 text-blue-500"></i>

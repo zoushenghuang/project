@@ -14,11 +14,11 @@ const { TabPane } = Tabs
 
 // 博客主人信息（固定信息，不依赖数据库）
 const blogOwner = {
-  name: '博主',
-  title: '全栈开发者',
+  name: '邹圣煌',
+  title: '前端开发师',
   bio: '热爱编程，分享技术心得与生活感悟',
   avatar: 'https://s.coze.cn/image/-ccG_QWFeVg/',
-  email: 'hello@example.com',
+  email: '1020374925@qq.com',
   socialLinks: {
     github: 'https://github.com',
     twitter: 'https://twitter.com',

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useCallback, useRef } from 'react'
+import { useEffect, useState, useCallback, useRef, Suspense } from 'react'
 import { Spin, Empty } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
@@ -15,7 +15,7 @@ import PopularArticles from '@/components/sidebar/PopularArticles'
 import TagsCloud from '@/components/sidebar/TagsCloud'
 import SubscriptionForm from '@/components/sidebar/SubscriptionForm'
 
-export default function ArticlesPage() {
+function ArticlesContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
@@ -249,6 +249,24 @@ export default function ArticlesPage() {
       </main>
       <Footer categories={categories} />
     </>
+  )
+}
+
+export default function ArticlesPage() {
+  return (
+    <Suspense fallback={
+      <>
+        <Header />
+        <div className="container mx-auto pt-28 pb-16 px-6 md:px-12">
+          <div className="flex justify-center items-center min-h-[60vh]">
+            <Spin size="large" />
+          </div>
+        </div>
+        <Footer />
+      </>
+    }>
+      <ArticlesContent />
+    </Suspense>
   )
 }
 

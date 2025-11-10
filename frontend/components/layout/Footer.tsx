@@ -82,17 +82,13 @@ export default function Footer({ categories = [] }: FooterProps) {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-4">联系我们</h4>
+            <h4 className="text-white font-bold mb-4">联系我</h4>
             <ul className="list-none p-0 space-y-2">
               <li className="flex items-center">
                 <MailOutlined className="mr-2 text-blue-400" />
                 <a href="mailto:hello@minimal.com" className="text-slate-400 hover:text-white transition-colors">
-                  hello@minimal.com
+                  1020377237@qq.com
                 </a>
-              </li>
-              <li className="flex items-center">
-                <EnvironmentOutlined className="mr-2 text-blue-400" />
-                <span className="text-slate-400">北京市朝阳区创意园A座</span>
               </li>
             </ul>
           </div>
@@ -101,17 +97,8 @@ export default function Footer({ categories = [] }: FooterProps) {
         <div className="border-t border-slate-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
             <p className="text-slate-400 text-sm order-1 md:order-1">
-              © 2024 Minimal 博客. 保留所有权利.
+              © 2025 Minimal 博客. 保留所有权利.
             </p>
-            <div className="text-slate-500 text-xs text-center order-2 md:order-2">
-              <p>
-                created by{' '}
-                <a href="https://space.coze.cn" className="text-blue-400 hover:underline">
-                  coze space
-                </a>
-              </p>
-              <p>页面内容均由 AI 生成，仅供参考</p>
-            </div>
             <div className="flex space-x-6 order-3 md:order-3">
               <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
                 隐私政策

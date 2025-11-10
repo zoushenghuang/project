@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // 不使用 standalone，使用默认模式（支持 SSR 和客户端渲染）
   images: {
+    unoptimized: false,
     domains: ['s.coze.cn', 'via.placeholder.com'],
     remotePatterns: [
       {
@@ -11,7 +13,6 @@ const nextConfig = {
     ],
   },
   webpack: (config, { isServer }) => {
-    // Monaco Editor 需要特殊处理
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
