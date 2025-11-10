@@ -95,11 +95,11 @@ export default function Footer({ categories = [] }: FooterProps) {
         </div>
 
         <div className="border-t border-slate-700 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0">
             <p className="text-slate-400 text-sm order-1 md:order-1">
-              © 2025 Minimal 博客. 保留所有权利.
+              © 2025 Minimal 博客. 保留所有权利
             </p>
-            <div className="flex space-x-6 order-3 md:order-3">
+            {/* <div className="flex space-x-6 order-3 md:order-3">
               <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
                 隐私政策
               </Link>
@@ -109,7 +109,7 @@ export default function Footer({ categories = [] }: FooterProps) {
               <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
                 Cookie 政策
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
