@@ -87,7 +87,7 @@ export default function Footer({ categories = [] }: FooterProps) {
               <li className="flex items-center">
                 <MailOutlined className="mr-2 text-blue-400" />
                 <a href="mailto:hello@minimal.com" className="text-slate-400 hover:text-white transition-colors">
-                  1020377237@qq.com
+                  1020374925@qq.com
                 </a>
               </li>
             </ul>
