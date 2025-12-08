@@ -48,6 +48,11 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Article.prototype, "isFeatured", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ description: '文章状态', enum: ['draft', 'published'] }),
+    (0, typeorm_1.Column)({ default: 'published' }),
+    __metadata("design:type", String)
+], Article.prototype, "status", void 0);
+__decorate([
     (0, swagger_1.ApiProperty)({ description: '阅读量' }),
     (0, typeorm_1.Column)({ default: 0 }),
     __metadata("design:type", Number)

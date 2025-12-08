@@ -7,6 +7,7 @@ export declare class Article {
     content: string;
     coverImage: string;
     isFeatured: boolean;
+    status: string;
     viewCount: number;
     commentCount: number;
     category: Category;

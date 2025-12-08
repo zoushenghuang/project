@@ -17,6 +17,7 @@ export declare class ArticlesService {
         tagId?: number;
         isFeatured?: boolean;
         search?: string;
+        status?: string;
     }): Promise<{
         data: Article[];
         total: number;
@@ -32,4 +33,5 @@ export declare class ArticlesService {
         message: string;
     }>;
     incrementViewCount(id: number): Promise<Article>;
+    publish(id: number): Promise<Article>;
 }

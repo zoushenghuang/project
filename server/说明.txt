@@ -1,0 +1,4 @@
+# 清理并重新部署
+bash deploy-server.sh
+bash deploy-frontend.sh
+bash configure-nginx.sh

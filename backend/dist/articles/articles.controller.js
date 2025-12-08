@@ -25,7 +25,7 @@ let ArticlesController = class ArticlesController {
     create(createArticleDto) {
         return this.articlesService.create(createArticleDto);
     }
-    findAll(page, limit, categoryId, tagId, isFeatured, search) {
+    findAll(page, limit, categoryId, tagId, isFeatured, search, status) {
         return this.articlesService.findAll({
             page,
             limit,
@@ -33,6 +33,7 @@ let ArticlesController = class ArticlesController {
             tagId,
             isFeatured,
             search,
+            status,
         });
     }
     findFeatured() {
@@ -46,6 +47,9 @@ let ArticlesController = class ArticlesController {
     }
     update(id, updateArticleDto) {
         return this.articlesService.update(+id, updateArticleDto);
+    }
+    publish(id) {
+        return this.articlesService.publish(+id);
     }
     remove(id) {
         return this.articlesService.remove(+id);
@@ -73,6 +77,7 @@ __decorate([
     (0, swagger_1.ApiQuery)({ name: 'tagId', required: false, description: '标签ID' }),
     (0, swagger_1.ApiQuery)({ name: 'isFeatured', required: false, description: '是否特色文章' }),
     (0, swagger_1.ApiQuery)({ name: 'search', required: false, description: '搜索关键词' }),
+    (0, swagger_1.ApiQuery)({ name: 'status', required: false, description: '文章状态', example: 'published' }),
     (0, swagger_1.ApiResponse)({ status: 200, description: '获取成功' }),
     __param(0, (0, common_1.Query)('page')),
     __param(1, (0, common_1.Query)('limit')),
@@ -80,8 +85,9 @@ __decorate([
     __param(3, (0, common_1.Query)('tagId')),
     __param(4, (0, common_1.Query)('isFeatured')),
     __param(5, (0, common_1.Query)('search')),
+    __param(6, (0, common_1.Query)('status')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, Number, Number, Number, Boolean, String]),
+    __metadata("design:paramtypes", [Number, Number, Number, Number, Boolean, String, String]),
     __metadata("design:returntype", void 0)
 ], ArticlesController.prototype, "findAll", null);
 __decorate([
@@ -124,6 +130,16 @@ __decorate([
     __metadata("design:paramtypes", [String, update_article_dto_1.UpdateArticleDto]),
     __metadata("design:returntype", void 0)
 ], ArticlesController.prototype, "update", null);
+__decorate([
+    (0, common_1.Patch)(':id/publish'),
+    (0, swagger_1.ApiOperation)({ summary: '发布文章' }),
+    (0, swagger_1.ApiParam)({ name: 'id', description: '文章ID' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: '发布成功' }),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ArticlesController.prototype, "publish", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, swagger_1.ApiOperation)({ summary: '删除文章' }),

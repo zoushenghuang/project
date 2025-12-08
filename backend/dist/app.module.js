@@ -13,6 +13,8 @@ const articles_module_1 = require("./articles/articles.module");
 const categories_module_1 = require("./categories/categories.module");
 const tags_module_1 = require("./tags/tags.module");
 const subscriptions_module_1 = require("./subscriptions/subscriptions.module");
+const admin_module_1 = require("./admin/admin.module");
+const auth_module_1 = require("./auth/auth.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -25,11 +27,14 @@ exports.AppModule = AppModule = __decorate([
                 entities: [__dirname + '/**/*.entity{.ts,.js}'],
                 synchronize: true,
                 logging: false,
+                cache: false,
             }),
             articles_module_1.ArticlesModule,
             categories_module_1.CategoriesModule,
             tags_module_1.TagsModule,
             subscriptions_module_1.SubscriptionsModule,
+            admin_module_1.AdminModule,
+            auth_module_1.AuthModule,
         ],
     })
 ], AppModule);

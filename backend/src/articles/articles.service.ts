@@ -48,6 +48,7 @@ export class ArticlesService {
     tagId?: number;
     isFeatured?: boolean;
     search?: string;
+    status?: string;
   }) {
     const page = options.page || 1;
     const limit = options.limit || 10;
@@ -82,6 +83,12 @@ export class ArticlesService {
         '(article.title LIKE :search OR article.summary LIKE :search OR article.content LIKE :search)',
         { search: `%${options.search}%` },
       );
+    }
+
+    if (options.status) {
+      queryBuilder.andWhere('article.status = :status', {
+        status: options.status,
+      });
     }
 
     const [data, total] = await queryBuilder
@@ -163,6 +170,12 @@ export class ArticlesService {
   async incrementViewCount(id: number) {
     const article = await this.findOne(id);
     article.viewCount += 1;
+    return this.articleRepository.save(article);
+  }
+
+  async publish(id: number) {
+    const article = await this.findOne(id);
+    article.status = 'published';
     return this.articleRepository.save(article);
   }
 }

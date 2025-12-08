@@ -76,29 +76,29 @@ export const articlesApi = {
     isFeatured?: boolean
     search?: string
   }): Promise<ArticlesResponse> => {
-    const response = await api.get<ArticlesResponse>('/articles', { params })
+    const response = await api.get<ArticlesResponse>('/api/articles', { params })
     return response.data
   },
 
   getFeatured: async (): Promise<Article[]> => {
-    const response = await api.get<Article[]>('/articles/featured')
+    const response = await api.get<Article[]>('/api/articles/featured')
     return response.data
   },
 
   getPopular: async (limit: number = 5): Promise<Article[]> => {
-    const response = await api.get<Article[]>('/articles/popular', {
+    const response = await api.get<Article[]>('/api/articles/popular', {
       params: { limit },
     })
     return response.data
   },
 
   getById: async (id: number): Promise<Article> => {
-    const response = await api.get<Article>(`/articles/${id}`)
+    const response = await api.get<Article>(`/api/articles/${id}`)
     return response.data
   },
 
   incrementView: async (id: number): Promise<void> => {
-    await api.post(`/articles/${id}/view`)
+    await api.post(`/api/articles/${id}/view`)
   },
 
   create: async (data: {
@@ -110,7 +110,7 @@ export const articlesApi = {
     categoryId: number
     tagIds?: number[]
   }): Promise<Article> => {
-    const response = await api.post<Article>('/articles', data)
+    const response = await api.post<Article>('/api/articles', data)
     return response.data
   },
 }
@@ -118,12 +118,12 @@ export const articlesApi = {
 // Categories API
 export const categoriesApi = {
   getAll: async (): Promise<Category[]> => {
-    const response = await api.get<Category[]>('/categories')
+    const response = await api.get<Category[]>('/api/categories')
     return response.data
   },
 
   getById: async (id: number): Promise<Category> => {
-    const response = await api.get<Category>(`/categories/${id}`)
+    const response = await api.get<Category>(`/api/categories/${id}`)
     return response.data
   },
 }
@@ -131,12 +131,12 @@ export const categoriesApi = {
 // Tags API
 export const tagsApi = {
   getAll: async (): Promise<Tag[]> => {
-    const response = await api.get<Tag[]>('/tags')
+    const response = await api.get<Tag[]>('/api/tags')
     return response.data
   },
 
   getPopular: async (): Promise<Tag[]> => {
-    const response = await api.get<Tag[]>('/tags/popular')
+    const response = await api.get<Tag[]>('/api/tags/popular')
     return response.data
   },
 }
@@ -144,7 +144,7 @@ export const tagsApi = {
 // Subscriptions API
 export const subscriptionsApi = {
   create: async (email: string): Promise<Subscription> => {
-    const response = await api.post<Subscription>('/subscriptions', { email })
+    const response = await api.post<Subscription>('/api/subscriptions', { email })
     return response.data
   },
 }

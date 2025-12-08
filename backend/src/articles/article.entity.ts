@@ -38,6 +38,10 @@ export class Article {
   @Column({ default: false })
   isFeatured: boolean;
 
+  @ApiProperty({ description: '文章状态', enum: ['draft', 'published'] })
+  @Column({ default: 'published' })
+  status: string;
+
   @ApiProperty({ description: '阅读量' })
   @Column({ default: 0 })
   viewCount: number;

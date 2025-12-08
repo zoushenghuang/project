@@ -39,6 +39,7 @@ export class ArticlesController {
   @ApiQuery({ name: 'tagId', required: false, description: '标签ID' })
   @ApiQuery({ name: 'isFeatured', required: false, description: '是否特色文章' })
   @ApiQuery({ name: 'search', required: false, description: '搜索关键词' })
+  @ApiQuery({ name: 'status', required: false, description: '文章状态', example: 'published' })
   @ApiResponse({ status: 200, description: '获取成功' })
   findAll(
     @Query('page') page?: number,
@@ -47,6 +48,7 @@ export class ArticlesController {
     @Query('tagId') tagId?: number,
     @Query('isFeatured') isFeatured?: boolean,
     @Query('search') search?: string,
+    @Query('status') status?: string,
   ) {
     return this.articlesService.findAll({
       page,
@@ -55,6 +57,7 @@ export class ArticlesController {
       tagId,
       isFeatured,
       search,
+      status,
     });
   }
 
@@ -88,6 +91,14 @@ export class ArticlesController {
   @ApiResponse({ status: 200, description: '更新成功' })
   update(@Param('id') id: string, @Body() updateArticleDto: UpdateArticleDto) {
     return this.articlesService.update(+id, updateArticleDto);
+  }
+
+  @Patch(':id/publish')
+  @ApiOperation({ summary: '发布文章' })
+  @ApiParam({ name: 'id', description: '文章ID' })
+  @ApiResponse({ status: 200, description: '发布成功' })
+  publish(@Param('id') id: string) {
+    return this.articlesService.publish(+id);
   }
 
   @Delete(':id')

@@ -5,7 +5,7 @@ export declare class ArticlesController {
     private readonly articlesService;
     constructor(articlesService: ArticlesService);
     create(createArticleDto: CreateArticleDto): Promise<import("./article.entity").Article>;
-    findAll(page?: number, limit?: number, categoryId?: number, tagId?: number, isFeatured?: boolean, search?: string): Promise<{
+    findAll(page?: number, limit?: number, categoryId?: number, tagId?: number, isFeatured?: boolean, search?: string, status?: string): Promise<{
         data: import("./article.entity").Article[];
         total: number;
         page: number;
@@ -16,6 +16,7 @@ export declare class ArticlesController {
     findPopular(limit?: number): Promise<import("./article.entity").Article[]>;
     findOne(id: string): Promise<import("./article.entity").Article>;
     update(id: string, updateArticleDto: UpdateArticleDto): Promise<import("./article.entity").Article>;
+    publish(id: string): Promise<import("./article.entity").Article>;
     remove(id: string): Promise<{
         message: string;
     }>;
